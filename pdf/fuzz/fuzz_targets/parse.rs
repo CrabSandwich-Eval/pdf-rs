@@ -1,5 +1,5 @@
 #![no_main]
-use libfuzzer_sys::fuzz_target;
+use cargo_libafl_helper::fuzz_target;
 
 fn harness(data: &[u8]) {
     if let Ok(file) = pdf::file::FileOptions::cached().load(data) {
@@ -7,7 +7,6 @@ fn harness(data: &[u8]) {
             let _ = file.get_page(idx);
         }
     }
-    Ok(())
 }
 
 fuzz_target!(|data: &[u8]| {
