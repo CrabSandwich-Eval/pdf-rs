@@ -27,7 +27,7 @@ WORKDIR /work/pdf/fuzz
 
 # Build the fuzzer
 RUN cargo install -f cargo-fuzz
-RUN cargo fuzz build -s none
+RUN cargo fuzz build
 RUN cp ./target/x86_64-unknown-linux-gnu/release/parse .
 
 # Gather seeds && make corpus dir && make coverage result dir
