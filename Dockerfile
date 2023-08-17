@@ -27,7 +27,7 @@ WORKDIR /work/pdf/fuzz
 
 # Build the fuzzer
 RUN cargo install --git https://github.com/AFLplusplus/cargo-libafl.git --branch no_tui
-RUN cargo libafl build
+RUN cargo libafl build -s none
 RUN cp ./target/x86_64-unknown-linux-gnu/release/parse .
 
 # Gather seeds && make corpus dir && make coverage result dir
