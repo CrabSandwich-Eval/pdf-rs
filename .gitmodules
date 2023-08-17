@@ -1,0 +1,12 @@
+[submodule "libfuzzer"]
+	path = libfuzzer
+	url = https://github.com/CrabSandwich-Eval/pdf-rs.git
+	branch = libfuzzer
+[submodule "libafl_libfuzzer"]
+	path = libafl_libfuzzer
+	url = https://github.com/CrabSandwich-Eval/pdf-rs.git
+	branch = libafl_libfuzzer
+[submodule "cargo_libafl"]
+	path = cargo_libafl
+	url = https://github.com/CrabSandwich-Eval/pdf-rs.git
+	branch = cargo_libafl
