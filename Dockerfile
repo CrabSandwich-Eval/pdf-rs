@@ -21,7 +21,8 @@ RUN rustup component add --toolchain nightly-2023-08-14 llvm-tools-preview
 
 # Copy the project
 RUN mkdir /work
-COPY . /work
+COPY pdf /work/pdf
+COPY pdf_derive /work/pdf_derive
 WORKDIR /work/pdf/fuzz
 
 # Build the fuzzer
@@ -33,3 +34,4 @@ RUN cp ./target/x86_64-unknown-linux-gnu/release/parse .
 RUN mkdir seeds && find ../.. -type f -name "*.pdf" -exec cp {} seeds/ \;
 RUN mkdir output
 RUN mkdir result
+RUN mkdir artifacts
