@@ -21,8 +21,7 @@ RUN rustup component add --toolchain nightly-2022-12-20 llvm-tools-preview
 
 # Copy the project
 RUN mkdir /work
-COPY pdf /work/pdf
-COPY pdf_derive /work/pdf_derive
+COPY . /work
 WORKDIR /work/pdf/fuzz
 
 # Build the fuzzer
