@@ -24,7 +24,7 @@ if [ "$fuzzer" = "libfuzzer" ] || [ "$fuzzer" = "libafl_libfuzzer" ]; then
   llvm_cov="/root/.rustup/toolchains/nightly-2023-08-14-x86_64-unknown-linux-gnu/lib/rustlib/x86_64-unknown-linux-gnu/bin/llvm-cov"
 elif [ "$fuzzer" = "cargo_libafl" ]; then
   taskset -c "$core" timeout -s SIGKILL "$time" "./$BENCHMARK" --cores all --output ./output --input ./seeds
-  llvm_cov="/root/.rustup/toolchains/nightly-2022-07-20-x86_64-unknown-linux-gnu/lib/rustlib/x86_64-unknown-linux-gnu/bin/llvm-cov"
+  llvm_cov="/root/.rustup/toolchains/nightly-2022-12-20-x86_64-unknown-linux-gnu/lib/rustlib/x86_64-unknown-linux-gnu/bin/llvm-cov"
 else
   echo -e "Invalid fuzzer variant; expected one of: libfuzzer, libafl_libfuzzer, cargo_libafl"
   exit
