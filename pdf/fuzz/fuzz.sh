@@ -30,5 +30,14 @@ else
   exit
 fi
 
+# Remove timeouts??
+for file in ./output/*
+do
+        timeout 5s ./$BENCHMARK $file
+        if [ $? -eq 124 ]; then
+               mv $file ./artifacts/
+        fi
+done
+
 cargo fuzz coverage "$BENCHMARK" ./output
 "$llvm_cov" show "./target/x86_64-unknown-linux-gnu/coverage/x86_64-unknown-linux-gnu/release/$BENCHMARK" --format=html --instr-profile="./coverage/$BENCHMARK/coverage.profdata" -o result/
