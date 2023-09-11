@@ -25,7 +25,7 @@ COPY . /work
 WORKDIR /work/pdf/fuzz
 
 # Build the fuzzer
-RUN cargo install --git https://github.com/CrabSandwich-Eval/cargo-libafl --branch no_tui
+RUN cargo install --git https://github.com/CrabSandwich-Eval/cargo-libafl --rev 9c475ed676c71d5d49cc50d5e08943783bdcd513
 RUN cargo libafl build
 RUN cp ./target/x86_64-unknown-linux-gnu/release/parse .
 
